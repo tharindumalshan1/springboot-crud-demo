@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -15,17 +16,17 @@ public class UserController {
    private UserDao dao;
 
 
-    @PostMapping("/addUsers")
+    @PostMapping("/add-users")
     public String addUser(@RequestBody User user){
 
-       // dao.save(user);
         dao.save(user);
         return "user added : " + user;
     }
 
-    @GetMapping("/getUser")
+    @GetMapping("/get-Users")
     public List<User> getUsers() {
         return (List<User>) dao.findAll();
     }
+
 }
 
