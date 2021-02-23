@@ -28,5 +28,10 @@ public class UserController {
         return (List<User>) dao.findAll();
     }
 
+    @GetMapping("/get-User/{id}")
+    public Optional<User> getUser(@PathVariable int id) {
+        return  dao.findById(id);
+    }
+
 }
 
