@@ -1,4 +1,4 @@
-package com.example.springcrud.model;
+package com.example.springcrud.entity;
 
 import lombok.*;
 

@@ -1,36 +1,32 @@
 package com.example.springcrud.controller;
 
-import com.example.springcrud.dao.UserDao;
-import com.example.springcrud.model.User;
 
+import com.example.springcrud.entity.User;
+import com.example.springcrud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
+
     @Autowired
-   private UserDao dao;
+    private UserService service;
 
-
-    @PostMapping("/add-users")
-    public String addUser(@RequestBody User user){
-
-        dao.save(user);
-        return "user added : " + user;
+    @PostMapping("/add-user")
+    public User addUser(@RequestBody User user){
+        return service.saveUser(user);
     }
 
-    @GetMapping("/get-Users")
-    public List<User> getUsers() {
-        return (List<User>) dao.findAll();
+    @GetMapping("/users")
+    public List<User> findAllUsers(){
+        return service.getUsers();
     }
 
-    @GetMapping("/get-User/{id}")
-    public Optional<User> getUser(@PathVariable int id) {
-        return  dao.findById(id);
+    @GetMapping("user/{id}")
+    public User findUserById(@PathVariable int id){
+        return service.getUserById(id);
     }
 
 }
