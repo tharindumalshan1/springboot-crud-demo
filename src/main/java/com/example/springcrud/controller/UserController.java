@@ -19,14 +19,34 @@ public class UserController {
         return service.saveUser(user);
     }
 
+    @PostMapping("/add-users")
+    public List<User> addUsers(@RequestBody List<User> users){
+        return service.saveUsers(users);
+    }
+
     @GetMapping("/users")
     public List<User> findAllUsers(){
         return service.getUsers();
     }
 
-    @GetMapping("user/{id}")
+    @GetMapping("/user/{id}")
     public User findUserById(@PathVariable int id){
         return service.getUserById(id);
+    }
+
+//    @GetMapping("/user/{name}")
+//    public User findUserByName(@PathVariable String name){
+//        return service.getUserByName(name);
+//    }
+
+    @PutMapping("/update")
+    public User updateUser(@RequestBody User user){
+        return service.updateUser(user);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public  String deleteUser(@PathVariable int id){
+        return service.deleteUser(id);
     }
 
 }
