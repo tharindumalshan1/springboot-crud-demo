@@ -31,9 +31,13 @@ public class UserService {
         return repository.findById(id).orElse(null);
     }
 
-//    public User getUserByName(String name){
-//        return repository.findByName(name);
-//    }
+    public User getUserByName(String name){
+        return repository.findByName(name);
+    }
+
+    public User getUserByEmail(String email){
+        return repository.findByEmail(email);
+    }
 
     //Delete method
     public String deleteUser(int id){
