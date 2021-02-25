@@ -27,9 +27,9 @@ public class CourseRepository{
         for (Map<String, Object> row : rows)
         {
             Course course = new Course();
-            course.setId((int)row.get("Course_id"));
-            course.setName((String)row.get("Course_name"));
-            course.setContent((String)row.get("Content"));
+            course.setId((Long)row.get("id"));
+            course.setName((String)row.get("name"));
+            course.setContent((String)row.get("content"));
 
             courses.add(course);
         }

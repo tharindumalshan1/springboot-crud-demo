@@ -2,24 +2,24 @@ package com.example.springcrud.entity;
 
 public class Course {
 
-    private int id;
+    private Long id;
     private String name;
     private String content;
 
     public Course(){
     }
 
-    public Course(int id, String name, String content) {
+    public Course(Long id, String name, String content) {
         this.id = id;
         this.name = name;
         this.content = content;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
