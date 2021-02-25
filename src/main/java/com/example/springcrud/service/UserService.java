@@ -9,7 +9,12 @@ import java.util.List;
 
 @Service
 public class UserService {
-    @Autowired
+//    @Autowired
+//    public UserService(UserRepository repository) {
+//        this.repository = repository;
+//    }
+
+   @Autowired
     private UserRepository repository;
 
     //Post Methods
