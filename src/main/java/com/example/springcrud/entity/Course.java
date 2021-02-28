@@ -1,9 +1,20 @@
 package com.example.springcrud.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "course")
 public class Course {
 
+    @Id
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "content")
     private String content;
 
     public Course(){

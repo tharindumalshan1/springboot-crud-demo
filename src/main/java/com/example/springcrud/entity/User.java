@@ -2,10 +2,7 @@ package com.example.springcrud.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "user")
@@ -17,7 +14,12 @@ import javax.persistence.Table;
 public class User {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "email")
     private String email;
 }
