@@ -5,9 +5,7 @@ import com.example.springcrud.exceptions.ResourceNotFoundException;
 import com.example.springcrud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Service
