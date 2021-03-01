@@ -56,7 +56,7 @@ public interface UserService {
      * @param id the Id of the user to delete
      * @return 'User Deleted' if a was deleted successfully
      */
-    String deleteUser(int id);
+    boolean deleteUser(int id);
 
     /**
      * Modify the details of an existing users

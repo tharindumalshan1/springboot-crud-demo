@@ -5,7 +5,9 @@ import com.example.springcrud.exceptions.ResourceNotFoundException;
 import com.example.springcrud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -47,10 +49,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String deleteUser(int id){
-        repository.deleteById(id);
-        return ("User Deleted !!!! " + id);
+    public boolean deleteUser(int id){
+        User user = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Invalid user id: [" + id + "]"));
+        repository.delete(user);
+        return true;
     }
+
 
 
     @Override
