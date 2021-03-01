@@ -19,7 +19,7 @@ public class CourseRepository{
 
     private static final String SQL = "select * from course";
 
-    public List<Course> isData() {
+    public List<Course> getCourses() {
 
         List<Course> courses = new ArrayList<Course>();
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(SQL);
@@ -27,8 +27,8 @@ public class CourseRepository{
         for (Map<String, Object> row : rows)
         {
             Course course = new Course();
-            course.setId((Long)row.get("id"));
-            course.setName((String)row.get("name"));
+            course.setCourse_id((Long)row.get("course_id"));
+            course.setCourse_name((String)row.get("course_name"));
             course.setContent((String)row.get("content"));
 
             courses.add(course);

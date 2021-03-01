@@ -10,36 +10,45 @@ import javax.persistence.Table;
 public class Course {
 
     @Id
-    @Column(name = "id")
-    private Long id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "course_id")
+    private Long course_id;
+    @Column(name = "course_name")
+    private String course_name;
     @Column(name = "content")
     private String content;
 
     public Course(){
     }
 
-    public Course(Long id, String name, String content) {
-        this.id = id;
-        this.name = name;
+    public Course(Long course_id, String course_name, String content) {
+        this.course_id = course_id;
+        this.course_name = course_name;
         this.content = content;
     }
 
-    public Long getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "Course{" +
+                "course_id=" + course_id +
+                ", course_name='" + course_name + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getCourse_id() {
+        return course_id;
     }
 
-    public String getName() {
-        return name;
+    public void setCourse_id(Long course_id) {
+        this.course_id = course_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCourse_name() {
+        return course_name;
+    }
+
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
     }
 
     public String getContent() {

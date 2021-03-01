@@ -21,7 +21,7 @@ public class CourseController {
 
     @RequestMapping("/get-courses")
     public List<Course> courseInformation() {
-        List<Course> courses = courseRepository.isData();
+        List<Course> courses = courseRepository.getCourses();
         return courses;
     }
 }

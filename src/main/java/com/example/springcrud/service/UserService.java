@@ -1,61 +1,69 @@
 package com.example.springcrud.service;
 
 import com.example.springcrud.entity.User;
-import com.example.springcrud.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.springcrud.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 
 @Service
-public class UserService {
-//    @Autowired
-//    public UserService(UserRepository repository) {
-//        this.repository = repository;
-//    }
+public interface UserService {
 
-   @Autowired
-    private UserRepository repository;
+    /**
+     * Creates a new user
+     * @param user the new User to be created
+     * @return the created user
+     */
+     User saveUser(User user);
 
-    //Post Methods
+    /**
+     * Creates new user List
+     * @param users the new User to be created
+     * @return the created List of users
+     */
+     List<User> saveUsers(List<User> users);
 
-    public User saveUser(User user){
-        return repository.save(user);
-    }
+    /**
+     * Returns the list of all available users
+     * This will return an empty list if no users are available
+     * @return  list of users
+     */
+     List<User> getUsers();
 
-    public List<User> saveUsers(List<User> users){
-        return repository.saveAll(users);
-    }
+    /**
+     * Returns the Users with the given UserId.
+     * @param  id the ID of the app
+     * @return  User with the given UserId
+     */
+     User getUserById(int id);
 
-    //get methods
-    public List<User> getUsers(){
-        return repository.findAll();
-    }
+    /**
+     * Returns the Users with the given UserName.
+     * @param  name the Name of the app
+     * @return  User with the given UserName
+     */
+     User getUserByName(String name);
 
-    public User getUserById(int id){
-        return repository.findById(id).orElse(null);
-    }
+    /**
+     * Returns the Users with the given Email.
+     * @param  email the Name of the app
+     * @return  User with the given Email
+     */
+    User getUserByEmail(String email);
 
-    public User getUserByName(String name){
-        return repository.findByName(name);
-    }
+    /**
+     * Deletes the user with the given user Id
+     * @param id the Id of the user to delete
+     * @return 'User Deleted' if a was deleted successfully
+     */
+    String deleteUser(int id);
 
-    public User getUserByEmail(String email){
-        return repository.findByEmail(email);
-    }
-
-    //Delete method
-    public String deleteUser(int id){
-        repository.deleteById(id);
-        return  "User Deleted !!!! " + id;
-    }
-
-    //Update method
-    public User updateUser(User user){
-        User existingUser = repository.findById(user.getId()).orElse(null);
-        existingUser.setName(user.getName());
-        existingUser.setEmail(user.getEmail());
-        return repository.save(existingUser);
-    }
+    /**
+     * Modify the details of an existing users
+     * Method will always return the updated users after a successful operation
+     * @param user the User being modified
+     * @return  the users with updated details
+     */
+     User updateUser(User user);
 
 }
