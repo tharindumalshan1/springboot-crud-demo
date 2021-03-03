@@ -1,0 +1,5 @@
+course.FindAll = SELECT * FROM course;
+course.Count = SELECT COUNT(*) FROM course;
+course.Add = INSERT INTO course (course_name, content) VALUES(?,?);
+course.Delete = DELETE FROM course WHERE course_id = ?;
+course.Update = UPDATE course SET CONTENT = ? WHERE course_id = ?;

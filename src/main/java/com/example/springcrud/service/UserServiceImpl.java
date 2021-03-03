@@ -3,6 +3,8 @@ package com.example.springcrud.service;
 import com.example.springcrud.entity.User;
 import com.example.springcrud.exceptions.ResourceNotFoundException;
 import com.example.springcrud.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +13,16 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository repository;
 
 
+
     @Override
     public User saveUser(User user){
+        logger.error("Test Logger");
         return repository.save(user);
     }
 
@@ -27,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUsers(){
+        logger.info("Requesting all Users");
+       // logger.info("Fetched all users  [{}]", getUsers().size());
+       // logger.trace("Test trace");
         return repository.findAll();
     }
 
