@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 @Primary
 @Configuration
-@PropertySource("classpath:/META-INF/jpa-named-queries-properties")
+@PropertySource("classpath:queries.properties")
 public class CourseRepository{
 
     @Autowired

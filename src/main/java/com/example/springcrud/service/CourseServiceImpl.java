@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Configuration
-@PropertySource("classpath:/META-INF/jpa-named-queries-properties")
 @Service
 public class CourseServiceImpl implements CourseService{
 
