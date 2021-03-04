@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @Service
@@ -19,6 +20,9 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
 
 
+    public String hello(String name){
+        return String.format("Hello %s",name);
+    }
 
     @Override
     public User saveUser(User user){
@@ -34,8 +38,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsers(){
         logger.info("Requesting all Users");
-       // logger.info("Fetched all users  [{}]", getUsers().size());
-       // logger.trace("Test trace");
         return repository.findAll();
     }
 

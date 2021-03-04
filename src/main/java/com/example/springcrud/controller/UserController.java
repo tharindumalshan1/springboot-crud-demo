@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService service;
@@ -38,11 +38,13 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public User findUserById(@PathVariable int id){
+        logger.error("user Id not found error [{}]" ,  id);
         return service.getUserById(id);
     }
 
     @GetMapping("/user-by-name/{name}")
     public User findUserByName(@PathVariable String name){
+        logger.debug("Request" , name);
         return service.getUserByName(name);
     }
 

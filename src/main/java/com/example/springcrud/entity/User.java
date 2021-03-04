@@ -9,8 +9,6 @@ import javax.persistence.*;
 //@SecondaryTable(name = "course", pkJoinColumns = @PrimaryKeyJoinColumn(name = "course_id"))
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class User {
     @Id
@@ -24,7 +22,16 @@ public class User {
     @Column(name = "email")
     private String email;
 
-//    @Column(name ="course_id")
+    public User( String name, String email) {
+      this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
+    //    @Column(name ="course_id")
 //    private String course_id
 
 

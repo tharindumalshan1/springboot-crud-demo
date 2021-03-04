@@ -1,11 +1,13 @@
 package com.example.springcrud.service;
 
 import com.example.springcrud.entity.User;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import com.example.springcrud.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 
+@Primary
 @Service
 public interface UserService {
 
