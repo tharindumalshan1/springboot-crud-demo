@@ -1,6 +1,8 @@
 package com.example.springcrud.service;
 
 import com.example.springcrud.entity.User;
+import com.example.springcrud.exceptions.ResourceNotFoundException;
+import com.example.springcrud.exceptions.ResponseError;
 import com.example.springcrud.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,20 +58,20 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void shouldDeleteUser_ifFound(){
+    public void shouldDeleteUserIfFound(){
         User user = new User();
         user.setName("Test Name");
         user.setEmail("Test Email");
-        user.setId(3);
+        user.setId(2);
 
         when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
 
         userServiceImpl.deleteUser(user.getId());
-        verify(userRepository).deleteById(user.getId());
+        verify(userRepository).findById(user.getId());
     }
 
-    @Test(expected = RuntimeException.class)
-    public void should_throw_exception_when_user_doesnt_exist() {
+    @Test(expected = ResourceNotFoundException.class)
+    public void shouldDeleteUserIfNotFound() {
         User user = new User();
         user.setId(15);
         user.setName("Test Name");

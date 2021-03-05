@@ -10,7 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,16 +29,16 @@ public class UserControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private UserService service;
+    private UserService userService;
 
     @Test
-    public void createUser_whenPostMethod() throws Exception {
+    public void createUserWhenPostMethod() throws Exception {
 
         User user = new User();
         user.setName("Test Name");
         user.setEmail("Test Email");
 
-        given(service.saveUser(user)).willReturn(user);
+        given(userService.saveUser(user)).willReturn(user);
 
         mockMvc.perform(post("/add-user")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -49,7 +48,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void listAllUsers_whenGetMethod()
+    public void listAllUsersWhenGetMethod()
             throws Exception {
 
         User user = new User();
@@ -57,7 +56,7 @@ public class UserControllerTest {
 
         List<User> allUsers = Arrays.asList(user);
 
-        given(service
+        given(userService
                 .getUsers())
                 .willReturn(allUsers);
 

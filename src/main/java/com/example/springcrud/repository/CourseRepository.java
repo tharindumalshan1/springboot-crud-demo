@@ -22,19 +22,19 @@ public class CourseRepository{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Value("${course.FindAll}")
+    @Value("${course.find-all}")
     String findCourses;
 
-    @Value("${course.Count}")
+    @Value("${course.count}")
     String CountCourses;
 
-    @Value("${course.Add}")
+    @Value("${course.add")
     String AddCourse;
 
-    @Value("${course.Delete}")
+    @Value("${course.delete}")
     String DeleteCourse;
 
-    @Value("${course.Update}")
+    @Value("${course.update}")
     String UpdateCourse;
 
     public  List<Course> getCourses() {

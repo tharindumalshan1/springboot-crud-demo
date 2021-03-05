@@ -3,11 +3,6 @@ package com.example.springcrud.service;
 import com.example.springcrud.entity.Course;
 import com.example.springcrud.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +11,11 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService{
 
     @Autowired
-     CourseRepository repository;
+     CourseRepository courseRepository;
 
 
     public  List<Course> courseInformation() {
-        List<Course> courses = repository.getCourses();
+        List<Course> courses = courseRepository.getCourses();
        // System.out.println(courses);
         return courses;
 
@@ -28,21 +23,21 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public int count() {
-        return repository.count();
+        return courseRepository.count();
     }
 
     @Override
     public int save(Course course) {
-        return repository.save(course);
+        return courseRepository.save(course);
     }
 
     @Override
     public int deleteById(Long course_id) {
-        return repository.deleteById(course_id);
+        return courseRepository.deleteById(course_id);
     }
 
     @Override
     public int update(Course course){
-        return repository.update(course);
+        return courseRepository.update(course);
     }
 }
