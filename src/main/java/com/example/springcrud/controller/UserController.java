@@ -13,14 +13,12 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/add-user")
     public User addUser(@RequestBody User user){
-        logger.info("Adding new User [{}] " , user);
         return userService.saveUser(user);
     }
 
@@ -51,13 +49,11 @@ public class UserController {
 
     @PutMapping("/update")
     public User updateUser(@RequestBody User user){
-        logger.info("update user : [{}]" , user);
         return userService.updateUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
     public  boolean deleteUser(@PathVariable int id){
-        logger.info("Deleting user : [{}]", id);
         return userService.deleteUser(id);
     }
 

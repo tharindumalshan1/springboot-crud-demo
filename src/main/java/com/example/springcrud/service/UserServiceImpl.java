@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+  private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -31,14 +32,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUsers(){
-        logger.info("Requesting all Users");
+        logger.info("Getting Users List [{}] " , userRepository.findAll());
         return userRepository.findAll();
     }
 
     @Override
     public User getUserById(int id){
-        return userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No user found for userId: " + id));
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()){
+            logger.error("Error finding the Id " + id);
+        }
+        return userOptional
+                .orElseThrow( () -> new ResourceNotFoundException(("No user found for userId: " + id)));
     }
 
     @Override
