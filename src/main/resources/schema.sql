@@ -13,3 +13,7 @@ CREATE TABLE user (
                         name VARCHAR(30) NOT NULL,
                         email VARCHAR(40) NOT NULL
 );
+
+INSERT INTO user VALUES ('Kamal','kamal@xyz.com'),('Tharindu','tharindu@gmail.com'),('Kasun','kasun@xyz.com'),(6,'Kasun Bandara','kasunb@xyz.com'),('Kamal','saman@gmail.com'),('SamanKumara','saman@gmail.com')
+
+INSERT INTO course VALUES ('IT','SE,DBMS,IT'),('Maths','Calculas'),('Java','OOP'),('JavaScript','OOP,Asynchronus,'),('Python','Data types');

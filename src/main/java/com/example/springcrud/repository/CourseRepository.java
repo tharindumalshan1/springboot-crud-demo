@@ -38,6 +38,7 @@ public class CourseRepository{
     String UpdateCourse;
 
     public  List<Course> getCourses() {
+        System.out.println(findCourses);
         return jdbcTemplate.query(
                 findCourses,
             (rs, rowNum) ->
