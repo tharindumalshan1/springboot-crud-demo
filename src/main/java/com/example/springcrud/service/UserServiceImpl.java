@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-
     @Override
     public User saveUser(User user){
         return userRepository.save(user);
@@ -63,8 +62,6 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(user);
         return true;
     }
-
-
 
     @Override
     public User updateUser(User user){

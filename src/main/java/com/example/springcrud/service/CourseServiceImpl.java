@@ -16,7 +16,6 @@ public class CourseServiceImpl implements CourseService{
 
     public  List<Course> courseInformation() {
         List<Course> courses = courseRepository.getCourses();
-       // System.out.println(courses);
         return courses;
 
     }

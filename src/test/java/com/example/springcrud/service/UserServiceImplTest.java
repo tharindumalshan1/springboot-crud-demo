@@ -31,6 +31,12 @@ public class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userServiceImpl;
 
+
+    /**
+     * Test the create new user method
+     * @param TestName,TestEmail  are the input for test the post method
+     * @return  the response of the server, create new user list
+     */
     @Test
     public void shouldSaveUser() {
         User user = new User();
@@ -44,6 +50,10 @@ public class UserServiceImplTest {
         verify(userRepository).save(user);
     }
 
+    /**
+     * Test the list all user method
+     * @return  the response of the server, input users list
+     */
     @Test
     public void shouldReturnAllUsers() {
         List<User> users = new ArrayList();
@@ -57,6 +67,10 @@ public class UserServiceImplTest {
         verify(userRepository).findAll();
     }
 
+    /**
+     * Test the list all user method
+     * @return  the response of the server, input users list
+     */
     @Test
     public void shouldDeleteUserIfFound(){
         User user = new User();
@@ -70,6 +84,11 @@ public class UserServiceImplTest {
         verify(userRepository).findById(user.getId());
     }
 
+    /**
+     * Test the update user method
+     * @param TestName, id  are the input for test the update  method
+     * @return  the response of the server, update user details
+     */
     @Test(expected = ResourceNotFoundException.class)
     public void shouldDeleteUserIfNotFound() {
         User user = new User();
